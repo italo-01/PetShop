@@ -36,16 +36,16 @@ public class Main {
                 case 7 ->setPetinPetMachine();
                 case 8 -> petMachine.removePet();
                 case 9 -> petMachine.wash();
-                case 0 -> System.exit();
+                case 0 -> System.exit(0);
                 default -> System.out.println("Opção invalida");
             }
 
-        }while (option != 0);
+        }while (true);
 
     }
 
     private static void setShampoo(){
-        System.out.println("Tentando colocar agua na maquina");
+        System.out.println("Tentando colocar Shampoo na maquina");
         petMachine.addShampoo();
 
     }
@@ -57,8 +57,8 @@ public class Main {
     }
 
     private static void verifyWater() {
-        var amount = petMachine.getShampoo();
-        System.out.println("A máquina está no momento com " + amount + " litro(s) de shampoo");
+        var amount = petMachine.getWater();
+        System.out.println("A máquina está no momento com " + amount + " litro(s) de agua");
     }
 
     private static void verifyShampoo() {
