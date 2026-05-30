@@ -56,13 +56,13 @@ public class PetMachine {
         System.out.println("O pet " + pet.getName() + " foi colocado ná maquina");
     }
     public void removePet(){
-        if (pet == null){
-            this.clean = this.pet.isClean();
-            System.out.println("O pet " + this.pet.getName() + " Está limpo");
-            this.pet = null;
+        if (this.pet == null){
+            System.out.println("Não tem Pet na máquina");
             return;
         }
-        System.out.println("Não tem Pet na máquina");
+        this.clean = this.pet.isClean();
+        System.out.println("O pet " + this.pet.getName() + " foi retirado da máquina");
+        this.pet = null;
     }
     public void wash(){
         if (hasPet()){
