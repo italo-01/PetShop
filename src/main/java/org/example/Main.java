@@ -9,7 +9,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        var scanner = new Scanner(System.in);
         var option =-1;
 
         do {
@@ -19,12 +18,13 @@ public class Main {
             System.out.println("3 - Abastecer a maquina com shampoo");
             System.out.println("4 - Verifica água da máquina");
             System.out.println("5 - verifica Shampoo da máquina");
-            System.out.println("6- Verificar se tem pet no banho");
+            System.out.println("6 - Verificar se tem pet no banho");
             System.out.println("7 - Colocar pet na maquina ");
-            System.out.println("8- Retirar pet da máquina");
+            System.out.println("8 - Retirar pet da máquina");
             System.out.println("9 - Limpar a máquina");
             System.out.println("0 - Sair");
             option = scanner.nextInt();
+            scanner.nextLine();
 
             switch (option){
                 case 1 -> petMachine.takeAShower();
@@ -73,14 +73,12 @@ public class Main {
     }
 
     public static void setPetinPetMachine(){
-        var name = "";
-        while (name == null || name.isEmpty()) {
+        String name = null;
+        while (name == null || name.isBlank()) {
             System.out.println("Informe o nome do pet");
-            name = scanner.nextLine();
+            name = scanner.nextLine().trim();
         }
         var pet = new Pet(name);
         petMachine.setPet(pet);
-        System.out.println("O pet " + pet.getName() + " foi colocado ná maquina");
-
     }
 }

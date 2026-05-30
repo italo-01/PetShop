@@ -2,8 +2,8 @@ package org.example;
 
 public class PetMachine {
     private boolean clean;
-    private int water;
-    private int shampoo;
+    private int water = 30;
+    private int shampoo = 10;
     private Pet pet;
 
     public void takeAShower(){
@@ -14,14 +14,14 @@ public class PetMachine {
         this.water -= 10;
         this.shampoo -= 2;
         pet.setClean(true);
-        System.out.println("O pet" + pet.getName() +  "está limpo "  );
+        System.out.println("O pet " + pet.getName() +  " está limpo "  );
     }
     public void addWater(){
         if (water == 30){
             System.out.println("a capacidade de agua está no maximo");
             return;
         }
-        water += 2;
+        water += 5;
     }
     public void addShampoo(){
         if (shampoo == 10){
@@ -53,9 +53,10 @@ public class PetMachine {
             return;
         }
         this.pet = pet;
+        System.out.println("O pet " + pet.getName() + " foi colocado ná maquina");
     }
     public void removePet(){
-        if (pet.getName() != null){
+        if (pet == null){
             this.clean = this.pet.isClean();
             System.out.println("O pet " + this.pet.getName() + " Está limpo");
             this.pet = null;
@@ -64,6 +65,10 @@ public class PetMachine {
         System.out.println("Não tem Pet na máquina");
     }
     public void wash(){
+        if (hasPet()){
+            System.out.println("Retire o pet antes de limpar a máquina");
+            return;
+        }
         this.water -= 10;
         this.shampoo -= 2;
         this.clean = true;
